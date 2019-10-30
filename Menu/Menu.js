@@ -1,13 +1,6 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
-let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
-];
+let menuItems = ['Students', 'Faculty', "What's New", 'Tech Trends', 'Music', 'Log Out'];
 
 /* 
 
@@ -33,3 +26,6 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+//Main parent querySelector to append all the child --> 'menu'
+const menuList = document.querySelector('menu-button');

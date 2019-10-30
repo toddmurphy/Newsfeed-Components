@@ -132,7 +132,6 @@ function articleComponent(title, date, paragraphOne, paragraphTwo, paragraphThre
   //Step 2: create structure of elements using appendChild
   article.appendChild(articleTitle); //
   article.appendChild(articleDate);
-  article.appendChild(articleDate);
   article.appendChild(firstParagraph);
   article.appendChild(secondParagraph);
   article.appendChild(thirdParagraph);
@@ -148,7 +147,6 @@ function articleComponent(title, date, paragraphOne, paragraphTwo, paragraphThre
   secondParagraph.classList.add('p');
   thirdParagraph.classList.add('p');
   buttonOpen.classList.add('expandButton');
-  buttonClose.classList.add('expandButton');
 
   //Step 4: set the text content using 'textContent'
   articleTitle.textContent = title;
@@ -156,8 +154,7 @@ function articleComponent(title, date, paragraphOne, paragraphTwo, paragraphThre
   firstParagraph.textContent = paragraphOne;
   secondParagraph.textContent = paragraphTwo;
   thirdParagraph.textContent = paragraphThree;
-  buttonOpen.textContent = '\u25bc';
-  buttonClose.textContent = '\u25b2';
+  buttonOpen.textContent = '\u0085';
 
   //Step 5: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
   buttonPanel.addEventListener('click', () => {
