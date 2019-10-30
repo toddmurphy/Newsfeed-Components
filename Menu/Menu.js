@@ -27,5 +27,41 @@ let menuItems = ['Students', 'Faculty', "What's New", 'Tech Trends', 'Music', 'L
   
 */
 
-//Main parent querySelector to append all the child --> 'menu'
-const menuList = document.querySelector('menu-button');
+//These are located outside the menuComponent function so we don't loop and output these each time
+const header = document.querySelector('.header');
+const menuButton = document.querySelector('.menu-button');
+
+function menuComponent(data) {
+  //Step1: create the elements using createElement -> only need li to to pass in menuItems to log out the items
+  const menuContainer = document.createElement('div');
+  const unorderList = document.createElement('ul');
+
+  //Step 2:create structure of elements using appendChild
+  menuContainer.appendChild(unorderList);
+
+  data.forEach(item => {
+    let orderedList = document.createElement('li');
+    orderedList.textContent = item;
+    unorderList.appendChild(orderedList);
+  });
+
+  //Step 3: set up the classes using 'classList'
+  menuContainer.classList.add('menu');
+
+  //Step 5: add eventlistener to open the menu button
+  menuButton.addEventListener('click', event => {
+    console.log('i was clicked');
+    menuContainer.classList.toggle('menu--open');
+  });
+
+  return menuContainer; //returns the entire menu component
+}
+header.appendChild(menuComponent(menuItems)); //pass 'menuItems' array as 'data' argument
+
+//this works instead of .forEach -> marina's example below
+// for (let element of data) {
+//   let orderedList = document.createElement('li');
+//   orderedList.textContent = element;
+//   unorderList.appendChild(orderedList);
+//   console.log('goodbye');
+// }
