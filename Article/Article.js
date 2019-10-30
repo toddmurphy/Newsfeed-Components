@@ -116,9 +116,23 @@ function articleComponent(title, date, firstParagraph, secondParagraph, thirdPar
   articleContainer.appendChild(articleTitle); //
   articleContainer.appendChild(articleDate);
   articleContainer.appendChild(articleDate);
-  articleContainer.appendChild(paragraphOne);
-  articleContainer.appendChild(paragraphTwo);
-  articleContainer.appendChild(paragraphThree);
+  articleContainer.appendChild(firstParagraph);
+  articleContainer.appendChild(secondParagraph);
+  articleContainer.appendChild(thirdParagraph);
+
+  //Step 3: set class names using 'classList'
+  articleContainer.classList.add('.article');
+  articleTitle.classList.add('h2');
+  articleDate.classList.add('p');
+  paragraphOne.classList.add('p');
+  paragraphTwo.classList.add('p');
+
+  //Step 4: set the text content using 'textContent'
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  firstParagraph.textContent = firstParagraph;
+  secondParagraph.textContent = secondParagraph;
+  thirdParagraph.textContent = thirdParagraph;
 } //this closes the articleComponent.
 
 // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
