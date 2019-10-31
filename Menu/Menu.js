@@ -38,11 +38,11 @@ function menuComponent(data) {
 
   //Step 2:create structure of elements using appendChild
   menuContainer.appendChild(unorderList);
-
+  //create an ordered(let orderedlist) list so we can inject the 'data' into individual 'li', which 'orderedList' is appended to 'unorderdList'.
   data.forEach(item => {
     let orderedList = document.createElement('li');
-    orderedList.textContent = item;
     unorderList.appendChild(orderedList);
+    orderedList.textContent = item;
   });
 
   //Step 3: set up the classes using 'classList'
@@ -50,18 +50,10 @@ function menuComponent(data) {
 
   //Step 5: add eventlistener to open the menu button
   menuButton.addEventListener('click', event => {
-    console.log('i was clicked');
     menuContainer.classList.toggle('menu--open');
   });
 
   return menuContainer; //returns the entire menu component
 }
+//top level parent 'header' appendChild the function component(menuComponent)
 header.appendChild(menuComponent(menuItems)); //pass 'menuItems' array as 'data' argument
-
-//this works instead of .forEach -> marina's example below
-// for (let element of data) {
-//   let orderedList = document.createElement('li');
-//   orderedList.textContent = element;
-//   unorderList.appendChild(orderedList);
-//   console.log('goodbye');
-// }
